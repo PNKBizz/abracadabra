@@ -18,6 +18,6 @@ app.get('/api/cats', function(req, res) {
 });
 
 app.use(express.static(__dirname + '/'));
-app.listen(4001, function() {
+app.listen(process.env.PORT || 4001, function() {
     console.log('Example app listening on port 4001')
   });
