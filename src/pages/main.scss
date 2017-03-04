@@ -1,0 +1,65 @@
+.main {
+  width: 100%;
+  flex-grow: 1;
+  background: url('/src/assets/113126.jpg') no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.logo {
+  width: 400px;
+  position: absolute;
+  right: calc(50% - 200px);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.main-button {
+  color: white;
+  background-color: #2e2e2e;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 0;
+  outline: 0;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 2;
+
+  &--about {
+    position: absolute;
+    left: 0;
+    top: 150px;
+  }
+
+  &--works {
+    position: absolute;
+    right: 0;
+    top: 150px;
+  }
+}
+
+.background {
+  opacity: 0;
+  transition: all .3s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  &--works {
+    background: url('/src/assets/113138.jpg') no-repeat;
+    background-size: cover;
+  }
+
+  &--about {
+    background: url('/src/assets/113142.jpg') no-repeat;
+    background-size: cover;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
