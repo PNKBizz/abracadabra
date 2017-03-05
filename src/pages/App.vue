@@ -1,17 +1,22 @@
 <template>
     <main>
-        <header v-if="isMain">Header</header>
-        <router-view></router-view>
-        <footer v-if="isMain">Footer</footer>
+        <transition name="transitionName">
+            <router-view></router-view>
+        </transition>
     </main>
 </template>
 
 <script>
     export default {
         name: 'app',
-        computed: {
-            isMain: function () {
-                return this.$route.fullPath !== '/'
+        data: function () {
+            return {
+                transitionName: ''
+            }
+        },
+        watch: {
+            $route (to) {
+                this.transitionName = to.path == '/about' ? 'left' : 'right';
             }
         }
     }

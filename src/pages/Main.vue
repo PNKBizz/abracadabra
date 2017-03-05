@@ -1,8 +1,12 @@
 <template>
     <section class="main">
-        <img src="/src/assets/logo.png" alt="logo" class="logo" @click="setMainBack">
-        <button class="main-button main-button--about" @click="setShowAboutBack">О студии</button>
-        <button class="main-button main-button--works" @click="setShowWorksBack">Наши работы</button>
+        <div lass="logo" @click="setShowBack('main')"></div>
+        <div class="main-button main-button--about" @mouseenter="setShowBack('about')">
+            <router-link to="/about">О студии</router-link>
+        </div>
+        <div class="main-button main-button--works" @mouseenter="setShowBack('works')">
+            <router-link to="/works">Наши работы</router-link>
+        </div>
         <div class="background background--works" :class="{ active: showWorksBack }"></div>
         <div class="background background--about" :class="{ active: showAboutBack }"></div>
     </section>
@@ -18,17 +22,12 @@
             }
         },
         methods: {
-            setShowAboutBack: function() {
-                this.showWorksBack = false;
-                this.showAboutBack = true;
+            setShowBack: function(currentCase) {
+                this.showWorksBack = currentCase === 'works';
+                this.showAboutBack = currentCase === 'about';
             },
-            setShowWorksBack: function() {
-                this.showWorksBack = true;
-                this.showAboutBack = false;
-            },
-            setMainBack: function () {
-                this.showWorksBack = false;
-                this.showAboutBack = false;
+            setAboutPage: function () {
+
             }
         }
     }
