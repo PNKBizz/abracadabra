@@ -1,6 +1,6 @@
 <template>
     <section class="main">
-        <div lass="logo" @click="setShowBack('main')"></div>
+        <div class="logo" @mouseenter="setShowBack('main')" @click="setShowBack('main')"></div>
         <div class="main-button main-button--about" @mouseenter="setShowBack('about')">
             <router-link to="/about">О студии</router-link>
         </div>
@@ -9,6 +9,7 @@
         </div>
         <div class="background background--works" :class="{ active: showWorksBack }"></div>
         <div class="background background--about" :class="{ active: showAboutBack }"></div>
+        <div class="background background--main" :class="{ active: showMain }"></div>
     </section>
 </template>
 
@@ -18,16 +19,15 @@
         data: function () {
             return {
                 showWorksBack: false,
-                showAboutBack: false
+                showAboutBack: false,
+                showMain: true
             }
         },
         methods: {
             setShowBack: function(currentCase) {
                 this.showWorksBack = currentCase === 'works';
                 this.showAboutBack = currentCase === 'about';
-            },
-            setAboutPage: function () {
-
+                this.showMain = currentCase === 'main';
             }
         }
     }

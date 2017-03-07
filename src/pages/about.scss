@@ -8,14 +8,9 @@
   .main-button {
     color: #444;
     background-color: #000;
-    padding-left: 40px;
-    transform-origin: 50% 50%;
-    transform: skewX(37deg) translateX(-30px);
-
-    .text {
-      transform: skewX(-37deg);
-      margin-right: 20px;
-    }
+    width: 25vw;
+    top: 0;
+    padding-left: 3vw;
   }
 }
 
