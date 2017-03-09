@@ -11,9 +11,9 @@
             <router-link to="/works">Наши работы</router-link>
             <div class="ribbon ribbon-right"></div>
         </div>
-        <div class="main-button main-button--main" @mouseenter="setShowBack('about')">
-            <div class="social social-vk"></div>
-            <div class="social social-inst"></div>
+        <div class="main-button main-button--main">
+            <vk class="social"></vk>
+            <inst class="social"></inst>
         </div>
         <div class="abralogo-back"><div class="abralogo"></div></div>
         <div class="background background--works" :class="{ active: showWorksBack }"></div>
@@ -23,6 +23,9 @@
 </template>
 
 <script>
+    import vk from '../components/vk.vue'
+    import inst from '../components/inst.vue'
+
     export default {
         name: 'main',
         data: function () {
@@ -32,6 +35,7 @@
                 showAboutMain: true
             }
         },
+        components: {vk, inst},
         methods: {
             setShowBack: function(currentCase) {
                 this.showWorksBack = currentCase === 'works';

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=El+Messiri:600');
+
 .main {
   width: 100%;
   flex-grow: 1;
@@ -31,6 +33,7 @@
     left: calc(50% - 100px);
     top: 120px;
     z-index: 1;
+
      &:after {
        content: '';
        width: 0;
@@ -60,6 +63,7 @@
   font-size: 2em;
   cursor: pointer;
   z-index: 2;
+  transition: color .3s;
 
   &--about {
     position: absolute;
@@ -142,6 +146,11 @@
     text-decoration: none;
     position: relative;
     z-index: 2;
+    font-family: 'El Messiri', sans-serif;
+  }
+
+  &:hover {
+    color: white;
   }
 }
 
@@ -235,12 +244,14 @@
   width: 50px;
   height: 50px;
   opacity: .5;
+  color: #0e0e0e;
+  transition: all .3s;
 
-  &-vk {
-    background: url('/src/assets/vk.svg') no-repeat;
+  &:hover {
+    color: #6D6D6D;
   }
+}
 
-  &-inst {
-    background: url('/src/assets/inst.svg') no-repeat;
-  }
+.svg-icon {
+  fill: currentColor;
 }
