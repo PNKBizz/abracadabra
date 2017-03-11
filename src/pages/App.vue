@@ -1,7 +1,16 @@
 <template>
-    <main>
-        <transition name="transitionName">
-            <router-view></router-view>
+    <main class="main-container">
+        <transition mode="out-in" name="header-transition">
+            <header v-if="$route.path !== '/'" class="header-main">
+                <router-link to="/about">О студии</router-link>
+                <router-link to="/" class="logo-horisontal"></router-link>
+                <router-link to="/works">Наши работы</router-link>
+            </header>
+        </transition>
+        <transition mode="out-in" :name="transitionName">
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
         </transition>
     </main>
 </template>
@@ -15,26 +24,17 @@
             }
         },
         watch: {
-            $route (to) {
-                this.transitionName = to.path == '/about' ? 'left' : 'right';
+            $route (to, from) {
+                if (to.path === '/works' && from.path === '/about') {
+                    this.transitionName = 'left';
+                } else if (to.path === '/about' && from.path === '/works') {
+                    this.transitionName = 'right';
+                } else {
+                    this.transitionName = 'fade';
+                }
             }
         }
     }
 </script>
 
-<style>
-    header, footer {
-        height: 10vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: #2e2e2e;
-        color: #fff;
-    }
-    main {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-</style>
+<style lang="scss" src="./app.scss"></style>

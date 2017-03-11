@@ -1,9 +1,6 @@
 <template>
     <section class="works">
         <div class="content content--works"></div>
-        <button class="main-button main-button--works"><span class="text">О студии</span></button>
-        <div class="logo logo--works"></div>
-        <div class="logo--back"></div>
     </section>
 </template>
 
@@ -22,16 +19,8 @@
         display: flex;
     }
 
-    .logo.logo--works {
-        z-index: 1;
-        right: calc(25vw - 200px);
-    }
-
     .content--works {
-        background-color: #2e2e2e;
+        background-color: #000;
         margin-right: 25vw;
-        flex-grow: 1;
-        position: relative;
-        z-index: 2;
     }
 </style>
