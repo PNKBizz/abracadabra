@@ -1,12 +1,20 @@
 <template>
     <section class="works">
         <div class="content content--works"></div>
+        <nav class="submenu">
+            <a v-for="master in masters" key="master.master">{{master.master}}</a>
+        </nav>
     </section>
 </template>
 
 <script>
     export default {
-        name: 'works'
+        name: 'works',
+        computed: {
+            masters: function() {
+                return this.$store.getters.allMasters
+            }
+        }
     }
 </script>
 
@@ -19,8 +27,17 @@
         display: flex;
     }
 
-    .content--works {
-        background-color: #000;
-        margin-right: 25vw;
+    .submenu {
+        padding-top: 10vh;
+        flex-basis: 25vw;
+        flex-shrink: 1;
+    }
+
+    .submenu a {
+        display: block;
+        padding: 20px;
+        color: white;
+        font-size: 1.5em;
+        background-color: rgba(0, 0, 0, .5);
     }
 </style>

@@ -211,7 +211,6 @@
 }
 
 .background {
-  opacity: 0;
   transition: all .3s;
   position: absolute;
   top: 0;
@@ -234,10 +233,6 @@
     background: url('/src/assets/commonBack.jpg') no-repeat;
     background-size: cover;
   }
-
-  &.active {
-    opacity: 1;
-  }
 }
 
 .social {
@@ -259,4 +254,11 @@
 .buttons-ribbons {
   width: 100%;
   position: absolute;
+}
+
+.background-enter-active, .background-leave-active {
+  transition: opacity .3s
+}
+.background-enter, .background-leave-to {
+  opacity: 0;
 }

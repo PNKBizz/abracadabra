@@ -9,9 +9,9 @@
 .content {
   flex-grow: 1;
   position: relative;
+  background-color: #000;
 
   &--about {
     margin-left: 25vw;
-    background-color: #000;
   }
 }

@@ -33,6 +33,9 @@
                     this.transitionName = 'fade';
                 }
             }
+        },
+        created: function() {
+            this.$store.dispatch('getMasters');
         }
     }
 </script>

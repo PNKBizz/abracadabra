@@ -12,7 +12,7 @@
                     <router-link to="/works">Наши работы</router-link>
                     <div class="ribbon ribbon-right"></div>
                 </div>
-                <div class="main-button main-button--main">
+                <div class="main-button main-button--main" @click="test">
                     <vk class="social"></vk>
                     <inst class="social"></inst>
                 </div>
@@ -21,15 +21,18 @@
         <transition appear name="from-bottom">
             <div class="abralogo-back"><div class="abralogo"></div></div>
         </transition>
-        <div class="background background--works" :class="{ active: showWorksBack }"></div>
-        <div class="background background--about" :class="{ active: showAboutBack }"></div>
-        <div class="background background--main" :class="{ active: showAboutMain }"></div>
+        <transition-group name="background" tag="div" mode="in-out">
+            <div class="background background--works" v-if="showWorksBack" key="worksBack"></div>
+            <div class="background background--about" v-if="showAboutBack" key="aboutBack"></div>
+            <div class="background background--main" v-if="showAboutMain" key="aboutMain"></div>
+        </transition-group>
     </section>
 </template>
 
 <script>
     import vk from '../components/vk.vue'
     import inst from '../components/inst.vue'
+    import shop from '../api/shop'
 
     export default {
         name: 'main',
@@ -47,6 +50,12 @@
                 this.showWorksBack = currentCase === 'works';
                 this.showAboutBack = currentCase === 'about';
                 this.showAboutMain = currentCase === 'main';
+            },
+            test: function () {
+                console.log('test');
+                shop.getMasters().then(function (data) {
+                    console.log(data.body[0]);
+                });
             }
         }
     }
