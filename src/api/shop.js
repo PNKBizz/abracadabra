@@ -5,6 +5,6 @@ Vue.use(Resourse);
 
 export default {
 	getMasters() {
-		return Vue.http.get('api/update')
+		return Vue.http.get('api/masters')
 	}
 }

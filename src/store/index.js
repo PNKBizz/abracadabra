@@ -22,7 +22,7 @@ export default new Vuex.Store({
 	actions: {
 		getMasters({ commit }) {
 			shop.getMasters().then(data => {
-				const mastersArr = data.body;
+				const mastersArr = data.body.masters;
 				commit('receiveMasters', { mastersArr })
 			});
 		}
