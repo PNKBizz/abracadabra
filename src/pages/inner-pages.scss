@@ -1,0 +1,37 @@
+.about {
+  width: 100%;
+  flex-grow: 1;
+  background: url('/src/assets/aboutBack.jpg') -15vw 0 no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.works {
+  width: 100%;
+  flex-grow: 1;
+  background: url('/src/assets/worksBack.jpg') 10vw 0 no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.submenu {
+  padding: 10vh 2vw;
+  box-sizing: border-box;
+  flex-basis: 25vw;
+  flex-shrink: 1;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.submenu a {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid darkred;
+  padding: 20px;
+  color: white;
+  font-size: 1.5em;
+}
+
+.content {
+  flex-grow: 1;
+  background-color: #000;
+}
