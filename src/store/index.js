@@ -9,21 +9,27 @@ const debug = process.env.NODE_ENV !== 'production';
 export default new Vuex.Store({
 	strict: debug,
 	state: {
-		masters: []
+		masters: [],
+		currentMaster: {}
 	},
 	getters: {
-		allMasters: state => state.masters
+		allMasters: state => state.masters,
+		getCurrentMaster: state => state.currentMaster
 	},
 	mutations: {
 		receiveMasters(state, { mastersArr }) {
 			state.masters = mastersArr;
+		},
+		setCurrentMaster(state, { masterName }) {
+			state.currentMaster = state.masters.filter( master => master.master === masterName)[0]
 		}
 	},
 	actions: {
-		getMasters({ commit }) {
+		getMasters({ state, commit }) {
 			shop.getMasters().then(data => {
 				const mastersArr = data.body.masters;
-				commit('receiveMasters', { mastersArr })
+				commit('receiveMasters', { mastersArr });
+				commit('setCurrentMaster', { masterName: state.masters[0].master });
 			});
 		}
 	}

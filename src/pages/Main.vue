@@ -9,11 +9,11 @@
                 </div>
                 <div class="main-button main-button--works" @mouseenter="setShowBack('works')">
                     <div class="ribbon-coverup ribbon-coverup-right"></div>
-                    <router-link to="/works">Наши работы</router-link>
+                    <router-link :to="'/works/' + currentMaster.master">Наши работы</router-link>
                     <div class="ribbon ribbon-right"></div>
                 </div>
                 <div class="main-button main-button--main" @click="test">
-                    <vk class="social"></vk>
+                    <vk class="social" @click="test"></vk>
                     <inst class="social"></inst>
                 </div>
             </div>
@@ -44,6 +44,11 @@
                 showRibbons: false
             }
         },
+        computed: {
+            currentMaster() {
+                return this.$store.getters.getCurrentMaster
+            }
+        },
         components: {vk, inst},
         methods: {
             setShowBack: function(currentCase) {
@@ -52,10 +57,7 @@
                 this.showAboutMain = currentCase === 'main';
             },
             test: function () {
-                console.log('test');
-                shop.getMasters().then(function (data) {
-                    console.log(data.body[0]);
-                });
+                console.log(this.currentMaster);
             }
         }
     }
