@@ -10,7 +10,6 @@ var router = new VueRouter({
 	routes: [
 		{path: '/', component: Main},
 		{path: '', redirect: '/'},
-		{path: '/works', component: Works},
 		{path: '/works/:master', component: Works},
 		{path: '/about', component: About}
 	]

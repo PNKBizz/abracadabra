@@ -1,8 +1,10 @@
 <template>
     <section class="works">
-        <div class="content content--works"></div>
+        <div class="content content--works">
+            <router-view name="detail"></router-view>
+        </div>
         <nav class="submenu">
-            <a v-for="master in masters" key="master.master">{{master.master}}</a>
+            <router-link :to="'/works/' + master.master" v-for="master in masters" :key="master.master">{{master.master}}</router-link>
         </nav>
     </section>
 </template>
