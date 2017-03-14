@@ -8,10 +8,10 @@ Vue.use(VueRouter)
 
 var router = new VueRouter({
 	routes: [
-		{path: '/', component: Main},
-		{path: '', redirect: '/'},
-		{path: '/works/:master', component: Works},
-		{path: '/about', component: About}
+		{ path: '/', component: Main },
+		{ path: '', redirect: '/' },
+		{ path: '/works/:master', component: Works, props: true },
+		{ path: '/about', component: About }
 	]
 })
 

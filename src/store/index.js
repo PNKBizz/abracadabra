@@ -14,7 +14,12 @@ export default new Vuex.Store({
 	},
 	getters: {
 		allMasters: state => state.masters,
-		getCurrentMaster: state => state.currentMaster
+		getCurrentMaster: state => state.currentMaster,
+		getGalleryItems: state => (master) => {
+			if (!state.masters.length) return;
+			return state.masters.filter(current => current.master === master)[0].gallery
+				.map(item => '/src/assets/gallery/' + master + '/' + item)
+		}
 	},
 	mutations: {
 		receiveMasters(state, { mastersArr }) {
