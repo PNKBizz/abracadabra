@@ -220,17 +220,14 @@
   z-index: -1;
 
   &--works {
-    background: url('/src/assets/worksBack.jpg') no-repeat;
     background-size: cover;
   }
 
   &--about {
-    background: url('/src/assets/aboutBack.jpg') no-repeat;
     background-size: cover;
   }
 
   &--main {
-    background: url('/src/assets/commonBack.jpg') no-repeat;
     background-size: cover;
   }
 }

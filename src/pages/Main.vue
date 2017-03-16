@@ -22,9 +22,18 @@
             <div class="abralogo-back"><div class="abralogo"></div></div>
         </transition>
         <transition-group name="background" tag="div" mode="in-out">
-            <div class="background background--works" v-if="showWorksBack" key="worksBack"></div>
-            <div class="background background--about" v-if="showAboutBack" key="aboutBack"></div>
-            <div class="background background--main" v-if="showAboutMain" key="aboutMain"></div>
+            <div class="background background--works"
+                 v-if="showWorksBack"
+                 key="worksBack"
+                 v-lazy:background-image="'src/assets/worksBack.jpg'"></div>
+            <div class="background background--about"
+                 v-if="showAboutBack"
+                 key="aboutBack"
+                 v-lazy:background-image="'src/assets/aboutBack.jpg'"></div>
+            <div class="background background--main"
+                 v-if="showAboutMain"
+                 key="aboutMain"
+                 v-lazy:background-image="'src/assets/commonBack.jpg'"></div>
         </transition-group>
     </section>
 </template>

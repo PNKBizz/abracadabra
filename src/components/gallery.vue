@@ -1,7 +1,10 @@
 <template>
     <section class="gallery">
-        <div class="gallery__item--container" v-for="item in items">
-            <img :src="item" alt="" width="200" class="gallery__item">
+        <div v-for="item in mappedItems"
+             class="gallery__item--container"
+             :class="{ 'active': item.active }"
+             @click="toggleActive(item)">
+            <img v-lazy="item.src" width="200" class="gallery__item">
         </div>
     </section>
 </template>
@@ -9,7 +12,30 @@
 <script>
     export default {
         name: 'gallery',
-        props: ['items']
+        data: function () {
+            return {
+				currentItem: ''
+            }
+		},
+        props: ['items'],
+        computed: {
+            mappedItems() {
+				get() {
+					if (!this.items) return;
+					return this.items.map( item => {
+						return { src: item, active: false }
+					});
+                },
+                set(value) {
+					this.mappedItems = value;
+                }
+			}
+        },
+        methods: {
+			toggleActive(item) {
+				item.active = true;
+			}
+        }
     }
 </script>
 
@@ -33,6 +59,11 @@
                 padding: 10px 0;
                 display: flex;
                 border-bottom: 1px solid #6a002d;
+                transition: all .3s;
+
+                &.active {
+                    margin-bottom: 200px;
+                }
             }
         }
 
