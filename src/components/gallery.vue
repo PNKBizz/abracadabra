@@ -2,38 +2,39 @@
     <section class="gallery">
         <div v-for="item in mappedItems"
              class="gallery__item--container"
-             :class="{ 'active': item.active }"
-             @click="toggleActive(item)">
-            <img v-lazy="item.src" width="200" class="gallery__item">
+             @click="toggleActive(item, $event)">
+            <img :src="item.src" :id="item.id" width="200" class="gallery__item">
         </div>
+        <gallery-overlay :current="currentItem" :all-items="mappedItems" v-if="currentItem.id"></gallery-overlay>
     </section>
 </template>
 
 <script>
+    import galleryOverlay from './galleryOverlay.vue'
+
     export default {
         name: 'gallery',
+		props: ['items'],
         data: function () {
             return {
-				currentItem: ''
+				currentItem: {}
             }
 		},
-        props: ['items'],
         computed: {
             mappedItems() {
-				get() {
-					if (!this.items) return;
-					return this.items.map( item => {
-						return { src: item, active: false }
-					});
-                },
-                set(value) {
-					this.mappedItems = value;
-                }
+                if (!this.items) return;
+                return this.items.map( (item, i) => {
+                    return {
+                    	src: item,
+                        id: i + '-' + Math.floor((1 + Math.random()) * 0x10000)
+                    }
+                });
 			}
         },
+        components: { galleryOverlay },
         methods: {
-			toggleActive(item) {
-				item.active = true;
+			toggleActive(item, e) {
+                this.currentItem = item;
 			}
         }
     }

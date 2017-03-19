@@ -1,13 +1,35 @@
 <template>
     <section class="gallery-overlay">
-        <img v-lazy="current" alt="" width="500">
+        <button class="next" @click="nextImg">next</button>
+        <button class="prev" @click="prevImg">prev</button>
+        <gallery-wrapper
+                :current="currentItem"
+                :all-items="itemsArray"
+                class="gallery-overlay__wrapper"></gallery-wrapper>
     </section>
 </template>
 
 <script>
+    import galleryWrapper from './galleryWrapper.vue'
+
 	export default {
-		name: 'gallery',
-		props: ['current']
+		name: 'galleryOverlay',
+		props: ['current', 'allItems'],
+		data() {
+		    return {
+				currentItem: this.current,
+				itemsArray: this.allItems
+            }
+        },
+		methods: {
+		    nextImg() {
+		    	this.currentItem = this.itemsArray[3];
+            },
+			prevImg() {
+				this.currentItem = this.itemsArray[2];
+            }
+        },
+		components: {galleryWrapper}
 	}
 </script>
 
@@ -20,11 +42,34 @@
         left: 0;
         background-color: rgba(0, 0, 0, .9);
         display: flex;
+        overflow: hidden;
         padding: 50px;
 
-        img {
-            margin: auto;
-            object-fit: cover;
+        .next {
+            position: relative;
+            z-index: 99;
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        &__item {
+            width: 200px;
+            position: relative;
+
+            &.active {
+                width: 400px;
+                z-index: 2;
+            }
+
+            &.half-active {
+                z-index: 1;
+                width: 300px;
+                margin: -50px;
+            }
         }
     }
 </style>
