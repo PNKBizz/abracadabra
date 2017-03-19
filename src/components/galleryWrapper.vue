@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :style="{ marginLeft: marginLeft + 'px' }">
         <img :src="item.src" alt=""
              :class="['gallery-overlay__item',
              {
@@ -16,19 +16,27 @@
 		name: 'galleryWrapper',
 		props: ['current', 'allItems'],
 		data() {
-			return {
-				marginLeft: 0,
-                activeSiblings: []
-			}
-		},
-		watch: {
-			current(newVal) {
-				const index = this.allItems.indexOf(newVal);
-				console.log(index);
-				this.activeSiblings = [this.allItems[index + 1], this.allItems[index - 1]]
-//				let xPos = current.getBoundingClientRect().left;
-//				this.marginLeft = this.marginLeft + xPos - document.documentElement.clientWidth * 1.5;
-			}
+		    return {
+                currentMargin: 0,
+                docWidth: 0,
+                xPos: 0
+            }
+        },
+		computed: {
+		    index() {
+		        return this.allItems.indexOf(this.current);
+            },
+            activeSiblings() {
+		        return [this.allItems[this.index + 1], this.allItems[this.index - 1]];
+            },
+            marginLeft() {
+				this.currentMargin = this.currentMargin + this.xPos - this.docWidth * 1.5;
+				return this.currentMargin;
+            }
+        },
+        mounted() {
+            this.docWidth = document.documentElement.clientWidth;
+            this.xPos = document.getElementById(this.current.id + '_overlay').getBoundingClientRect().left;
         }
 	}
 </script>

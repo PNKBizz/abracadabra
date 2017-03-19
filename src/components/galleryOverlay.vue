@@ -59,10 +59,13 @@
         &__item {
             width: 200px;
             position: relative;
+            transition: all .3s;
 
             &.active {
                 width: 400px;
                 z-index: 2;
+                border: 5px solid gray;
+                box-shadow: 0 0 50px black;
             }
 
             &.half-active {
