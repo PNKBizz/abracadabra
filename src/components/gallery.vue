@@ -1,40 +1,25 @@
 <template>
     <section class="gallery">
         <div v-for="item in mappedItems"
-             class="gallery__item--container"
-             @click="toggleActive(item, $event)">
-            <img :src="item.src" :id="item.id" width="200" class="gallery__item">
+             class="gallery__item--container">
+            <router-link
+                    :to="'/works/' + master + '/' + item.name"
+                    tag="img"
+                    :src="item.src"
+                    :id="item.name"
+                    width="200"
+                    class="gallery__item"></router-link>
         </div>
-        <gallery-overlay :current="currentItem" :all-items="mappedItems" v-if="currentItem.id"></gallery-overlay>
     </section>
 </template>
 
 <script>
-    import galleryOverlay from './galleryOverlay.vue'
-
     export default {
         name: 'gallery',
-		props: ['items'],
-        data: function () {
-            return {
-				currentItem: {}
-            }
-		},
+		props: ['master'],
         computed: {
             mappedItems() {
-                if (!this.items) return;
-                return this.items.map( (item, i) => {
-                    return {
-                    	src: item,
-                        id: i + '-' + Math.floor((1 + Math.random()) * 0x10000)
-                    }
-                });
-			}
-        },
-        components: { galleryOverlay },
-        methods: {
-			toggleActive(item, e) {
-                this.currentItem = item;
+                return this.$store.getters.getGalleryItems(this.master)
 			}
         }
     }

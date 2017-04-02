@@ -41,7 +41,6 @@
 <script>
     import vk from '../components/vk.vue'
     import inst from '../components/inst.vue'
-    import shop from '../api/shop'
 
     export default {
         name: 'main',

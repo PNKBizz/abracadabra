@@ -1,7 +1,7 @@
 <template>
     <section class="works">
         <div class="content content--works">
-            <gallery :items="galleryItems"></gallery>
+            <router-view></router-view>
         </div>
         <nav class="submenu">
             <router-link v-for="current in masters"
@@ -12,8 +12,6 @@
 </template>
 
 <script>
-    import gallery from '../components/gallery.vue'
-
     export default {
         name: 'works',
         props: ['master'],
@@ -25,7 +23,6 @@
             	return this.$store.getters.getGalleryItems(this.master)
             }
         },
-        components: { gallery },
         watch: {
 			master: function(newMaster) {
 				this.$store.commit('setCurrentMaster', { masterName: newMaster })

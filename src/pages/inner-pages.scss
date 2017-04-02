@@ -32,6 +32,8 @@
 }
 
 .content {
+  max-width: 75vw;
+  max-height: 90vh;
   flex-grow: 1;
   background-color: #000;
   margin-top: 10vh;

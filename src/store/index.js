@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import shop from '../api/shop'
+import api from '../api'
 
 Vue.use(Vuex);
 
@@ -16,9 +16,15 @@ export default new Vuex.Store({
 		allMasters: state => state.masters,
 		getCurrentMaster: state => state.currentMaster,
 		getGalleryItems: state => (master) => {
-			if (!state.masters.length) return;
+			if (!state.masters.length) return [];
 			return state.masters.filter(current => current.master === master)[0].gallery
-				.map(item => '/src/assets/gallery/' + master + '/' + item)
+				.map( (item) => {
+					console.log(master, item);
+					return {
+						src: '/src/assets/gallery/' + master + '/' + item,
+						name: item
+					}
+				});
 		}
 	},
 	mutations: {
@@ -31,7 +37,7 @@ export default new Vuex.Store({
 	},
 	actions: {
 		getMasters({ state, commit }) {
-			shop.getMasters().then(data => {
+			api.getMasters().then(data => {
 				const mastersArr = data.body.masters;
 				commit('receiveMasters', { mastersArr });
 				commit('setCurrentMaster', { masterName: state.masters[0].master });
