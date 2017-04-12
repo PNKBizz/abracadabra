@@ -1,9 +1,9 @@
 <template>
-    <section class="works">
+    <section>
         <div class="content content--works">
             <router-view></router-view>
         </div>
-        <nav class="submenu">
+        <nav class="submenu submenu--works">
             <router-link v-for="current in masters"
                          :to="'/works/' + current.master"
                          :key="current.master">{{current.master}}</router-link>

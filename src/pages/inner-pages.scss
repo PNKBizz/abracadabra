@@ -1,25 +1,22 @@
-.about {
-  width: 100%;
-  flex-grow: 1;
-  background: url('/src/assets/aboutBack.jpg') -15vw 0 no-repeat;
-  background-size: cover;
-  display: flex;
-}
-
-.works {
-  width: 100%;
-  flex-grow: 1;
-  background: url('/src/assets/worksBack.jpg') 10vw 0 no-repeat;
-  background-size: cover;
-  display: flex;
-}
-
 .submenu {
   padding: 10vh 2vw;
   box-sizing: border-box;
-  flex-basis: 25vw;
+  width: 25vw;
   flex-shrink: 0;
-  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 10vh;
+  bottom: 0;
+
+  &--works {
+    background: url('/src/assets/worksBack.jpg') center right no-repeat;
+    background-size: cover;
+    right: 0;
+  }
+
+  &--about {
+    background: url('/src/assets/aboutBack.jpg') -15vw 0 no-repeat;
+    background-size: cover;
+  }
 }
 
 .submenu a {
@@ -33,8 +30,17 @@
 
 .content {
   max-width: 75vw;
-  max-height: 90vh;
+  height: 100vh;
+  box-sizing: border-box;
   flex-grow: 1;
   background-color: #000;
-  margin-top: 10vh;
+  padding-top: 10vh;
+
+  &--works {
+    margin-right: 25vw;
+  }
+
+  &--about {
+    margin-left: 25vw;
+  }
 }

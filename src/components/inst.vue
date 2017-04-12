@@ -11,9 +11,3 @@
 	v-0.1v-6.3h0.1C33.9,10.6,36,10.6,39.4,10.6z"/>
     </svg>
 </template>
-
-<script>
-    export default {
-        name: 'inst'
-    }
-</script>

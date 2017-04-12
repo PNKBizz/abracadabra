@@ -19,7 +19,6 @@ export default new Vuex.Store({
 			if (!state.masters.length) return [];
 			return state.masters.filter(current => current.master === master)[0].gallery
 				.map( (item) => {
-					console.log(master, item);
 					return {
 						src: '/src/assets/gallery/' + master + '/' + item,
 						name: item

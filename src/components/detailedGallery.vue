@@ -31,32 +31,40 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100%;
+        max-height: 100%;
         align-items: center;
 
         &__big-img {
-            max-height: 80%;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            padding-bottom: 10px;
+            overflow: hidden;
+            flex-grow: 1;
         }
 
         &__item {
+            padding-top: 10px;
             object-fit: cover;
             height: 100%;
-            border-left: 5px solid black;
+            margin: 0 5px;
             position: relative;
 
             &.router-link-active {
-                border: 5px solid darkred;
+                padding-top: 0;
+                border-top: 10px solid darkred;
             }
         }
 
         &__all-items {
             width: 100%;
-            height: 20%;
+            flex-basis: 20vh;
+            height: 20vh;
+            flex-shrink: 0;
             display: flex;
             overflow: hidden;
-            padding-top: 10px;
-            margin-top: 10px;
             border-top: 1px solid darkred;
+            box-sizing: border-box;
         }
     }
 </style>

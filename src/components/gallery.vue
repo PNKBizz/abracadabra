@@ -5,8 +5,9 @@
             <router-link
                     :to="'/works/' + master + '/' + item.name"
                     tag="img"
-                    :src="item.src"
+                    v-lazy="item.src"
                     :id="item.name"
+                    :key="master + item.name"
                     width="200"
                     class="gallery__item"></router-link>
         </div>
@@ -32,6 +33,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 20px;
+        background-color: #000;
 
         &__item {
             object-fit: cover;
