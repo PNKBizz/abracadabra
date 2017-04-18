@@ -14,8 +14,9 @@
   }
 
   &--about {
-    background: url('/src/assets/aboutBack.jpg') -15vw 0 no-repeat;
+    background: url('/src/assets/aboutBack.jpg') center left no-repeat;
     background-size: cover;
+    left: 0;
   }
 }
 

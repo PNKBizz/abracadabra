@@ -1,6 +1,6 @@
 <template>
     <section class="about">
-        <nav class="submenu">
+        <nav class="submenu submenu--about">
             <a href="">1111</a>
         </nav>
         <div class="content content--about"></div>

@@ -1,7 +1,8 @@
 <template>
     <section>
         <div class="content content--works">
-            <router-view></router-view>
+            <router-view v-if="$route.params.master"></router-view>
+            <div v-else="" class="works__back"></div>
         </div>
         <nav class="submenu submenu--works">
             <router-link v-for="current in masters"

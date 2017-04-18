@@ -4,7 +4,7 @@
             <header v-if="$route.path !== '/'" class="header-main">
                 <router-link to="/about">О студии</router-link>
                 <router-link to="/" class="logo-horisontal"></router-link>
-                <router-link :to="'/works/' + currentMaster">Наши работы</router-link>
+                <router-link to="/works">Наши работы</router-link>
             </header>
         </transition>
         <transition mode="out-in" :name="transitionName">

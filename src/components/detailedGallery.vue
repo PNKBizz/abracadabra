@@ -1,8 +1,11 @@
 <template>
     <section class="detailedGallery">
         <div class="detailedGallery__button detailedGallery__button--prev"
-             @click="prev" v-if="currentIndex < masterGallery.length"></div>
-        <div class="detailedGallery__button detailedGallery__button--next" @click="next"></div>
+             @click="prev"
+             v-if="currentIndex !== 0"></div>
+        <div class="detailedGallery__button detailedGallery__button--next"
+             @click="next"
+             v-if="(currentIndex + 1) < masterGallery.length"></div>
         <img :src="'/src/assets/gallery/' + master + '/' + imageId" alt="" class="detailedGallery__big-img">
         <aside class="detailedGallery__all-items">
             <div class="detailedGallery__all-items--container">
@@ -41,6 +44,9 @@
                 this.$router.push('/works/' + this.master + '/' + this.masterGallery[--this.currentIndex].name)
             }
         },
+        created() {
+            this.currentIndex = this.masterGallery.findIndex(img => img.name === this.imageId);
+        },
         updated() {
             const activeEl = document.querySelector('.detailedGallery__all-items .router-link-active');
             activeEl.offsetParent.style.marginLeft = -activeEl.offsetLeft
@@ -62,20 +68,33 @@
         position: relative;
 
         &__button {
-            width: 70px;
-            height: 10px;
-            background-color: #2e2e2e;
+            width: 0;
+            height: 0;
+            border: 40px solid black;
+            border-radius: 50%;
             position: absolute;
             top: 35%;
+            cursor: pointer;
 
             &:after {
                 content: '';
                 height: 30px;
                 width: 10px;
-                background-color: inherit;
+                background-color: #2e2e2e;
                 position: absolute;
-                left: 10px;
-                top: -100%;
+                z-index: 1;
+                right: 10px;
+                top: -15px;
+            }
+
+            &:before {
+                content: '';
+                width: 70px;
+                height: 10px;
+                background-color: #2e2e2e;
+                position: absolute;
+                left: -30px;
+                bottom: -5px;
             }
 
             &--prev {
