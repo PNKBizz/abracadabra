@@ -9,7 +9,7 @@
                 </div>
                 <div class="main-button main-button--works" @mouseenter="setShowBack('backgroundWorks')">
                     <div class="ribbon-coverup ribbon-coverup-right"></div>
-                    <router-link :to="'/works/' + currentMaster.master">Наши работы</router-link>
+                    <router-link to="/works/">Наши работы</router-link>
                     <div class="ribbon ribbon-right"></div>
                 </div>
                 <div class="main-button main-button--main" @click="test">
@@ -41,21 +41,13 @@
                 backgroundImg: 'backgroundCommon'
             }
         },
-        computed: {
-            currentMaster() {
-                return this.$store.getters.getCurrentMaster
-            }
-        },
         components: { vk, inst, backgroundCommon, backgroundWorks, backgroundAbout },
         methods: {
             setShowBack: function(currentCase) {
                 this.backgroundImg = currentCase;
-            },
-            test: function () {
-                console.log(this.currentMaster);
             }
         }
     }
 </script>
 
-<style lang="scss" src="./main.scss"></style>
+<style lang="scss" src="../css/main.scss"></style>

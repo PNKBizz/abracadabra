@@ -1,7 +1,7 @@
 <template>
     <section class="about">
         <nav class="submenu submenu--about">
-            <a href="">1111</a>
+            <a class="submenu__link" href="">1111</a>
         </nav>
         <div class="content content--about"></div>
     </section>
@@ -13,4 +13,4 @@
     }
 </script>
 
-<style lang="scss" src="./inner-pages.scss"></style>
+<style lang="scss" src="../css/inner-pages.scss"></style>

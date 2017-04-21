@@ -23,11 +23,6 @@
                 transitionName: ''
             }
         },
-        computed: {
-            currentMaster() {
-            	return this.$store.getters.getCurrentMaster.master
-            }
-        },
         watch: {
             $route (to, from) {
                 if (to.path === '/works' && from.path === '/about') {
@@ -45,4 +40,4 @@
     }
 </script>
 
-<style lang="scss" src="./app.scss"></style>
+<style lang="scss" src="../css/app.scss"></style>

@@ -2,12 +2,23 @@
     <section>
         <div class="content content--works">
             <router-view v-if="$route.params.master"></router-view>
-            <div v-else="" class="works__back"></div>
+            <div v-else-if="/works/.test($route.fullPath) && !$route.params.master" class="works-back">
+                <router-link tag="div"
+                             v-for="current in masters"
+                             :to="'/works/' + current.master"
+                             :key="current.master"
+                             class="works-back__master"
+                             :style="{ backgroundImage: 'url(/src/assets/' + current.master + '.jpg)' }">
+                    <span class="works-back__master-name">{{current.master}}</span>
+                </router-link>
+            </div>
         </div>
         <nav class="submenu submenu--works">
             <router-link v-for="current in masters"
                          :to="'/works/' + current.master"
-                         :key="current.master">{{current.master}}</router-link>
+                         :key="current.master"
+                         class="submenu__link"
+                         activeClass="submenu__link--active">{{current.master}}</router-link>
         </nav>
     </section>
 </template>
@@ -19,18 +30,10 @@
         computed: {
             masters() {
                 return this.$store.getters.allMasters
-            },
-			galleryItems() {
-            	return this.$store.getters.getGalleryItems(this.master)
             }
-        },
-        watch: {
-			master: function(newMaster) {
-				this.$store.commit('setCurrentMaster', { masterName: newMaster })
-			}
         }
     }
 </script>
 
-<style lang="scss" src="./inner-pages.scss"></style>
+<style lang="scss" src="../css/inner-pages.scss"></style>
 

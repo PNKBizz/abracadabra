@@ -1,31 +1,33 @@
+@import 'variables';
+
 .header-main, footer {
   height: 10vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2e2e2e;
-  color: #fff;
+  background-color: $darkgray;
+  color: white;
   padding: 0 7vw;
   box-sizing: border-box;
 }
 
 .header-main {
-  border-bottom: 1px solid #6a002d;
+  border-bottom: 1px solid $darkred;
   position: fixed;
   top: 0;
   z-index: 99;
 
   .logo-horisontal {
-    background: url('/src/assets/logo-horisontal.svg') #2e2e2e no-repeat center;
+    background: url('/src/assets/logo-horisontal.svg') $darkgray no-repeat center;
     background-size: contain;
     flex-grow: 1;
     height: 80%;
   }
 
   a {
-    color: #6D6D6D;
-    font-family: 'El Messiri', sans-serif;
+    color: lighten($darkgray, 20%);
+    font-family: $custom-font;
     text-decoration: none;
     transition: color .3s;
     font-size: 1.5em;

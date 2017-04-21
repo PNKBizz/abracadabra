@@ -1,0 +1,114 @@
+@import 'variables';
+
+.submenu {
+  padding: 10vh 2vw;
+  box-sizing: border-box;
+  width: 25vw;
+  flex-shrink: 0;
+  position: fixed;
+  top: 10vh;
+  bottom: 0;
+
+  &--works {
+    background: url('/src/assets/worksBack.jpg') center right no-repeat;
+    background-size: cover;
+    right: 0;
+  }
+
+  &--about {
+    background: url('/src/assets/aboutBack.jpg') center left no-repeat;
+    background-size: cover;
+    left: 0;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid $darkred;
+    padding: 20px;
+    color: $darkred;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-family: $custom-font;
+    position: relative;
+
+    &--active {
+      color: white;
+      background-color: $darkred;
+    }
+
+    &:after {
+      content: '';
+      width: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $darkgray;
+      height: 100%;
+      transition: width .5s;
+    }
+
+    &:hover {
+      color: white;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.content {
+  max-width: 75vw;
+  height: 100vh;
+  box-sizing: border-box;
+  flex-grow: 1;
+  background-color: black;
+  padding-top: 10vh;
+  display: flex;
+
+  &--works {
+    margin-right: 25vw;
+  }
+
+  &--about {
+    margin-left: 25vw;
+  }
+
+  .works-back {
+    margin: 50px;
+    display: flex;
+    flex-grow: 1;
+
+    &__master {
+      flex-grow: 1;
+      background-color: darkgray;
+      background-size: cover;
+      cursor: pointer;
+      color: white;
+      position: relative;
+
+      &:hover:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .6);
+      }
+    }
+
+    &__master-name {
+      writing-mode: tb-rl;
+      padding: 10px;
+      font-family: $custom-font;
+      font-size: 2em;
+      background-color: $darkgray;
+      transform: rotate(180deg);
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
