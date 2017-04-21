@@ -36,6 +36,7 @@
     "vue-lazyload": "^1.0.0-rc12",
     "vue-loader": "^11.0.0",
     "vue-template-compiler": "^2.2.1",
+    "vue2-google-maps": "^0.7.5",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   }

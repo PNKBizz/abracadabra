@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="content content--works">
+        <div :class="['content', 'content--works', {'content--fullscreen': !$route.params.master}]">
             <router-view v-if="$route.params.master"></router-view>
             <div v-else-if="/works/.test($route.fullPath) && !$route.params.master" class="works-back">
                 <router-link tag="div"
@@ -13,7 +13,7 @@
                 </router-link>
             </div>
         </div>
-        <nav class="submenu submenu--works">
+        <nav class="submenu submenu--works" v-if="$route.params.master">
             <router-link v-for="current in masters"
                          :to="'/works/' + current.master"
                          :key="current.master"

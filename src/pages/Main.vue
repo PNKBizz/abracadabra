@@ -12,8 +12,8 @@
                     <router-link to="/works/">Наши работы</router-link>
                     <div class="ribbon ribbon-right"></div>
                 </div>
-                <div class="main-button main-button--main" @click="test">
-                    <vk class="social" @click="test"></vk>
+                <div class="main-button main-button--main">
+                    <vk class="social"></vk>
                     <inst class="social"></inst>
                 </div>
             </div>
