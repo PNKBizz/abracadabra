@@ -4,7 +4,7 @@
             <div class="buttons-ribbons">
                 <div class="main-button main-button--about" @mouseenter="setShowBack('backgroundAbout')">
                     <div class="ribbon-coverup ribbon-coverup-left"></div>
-                    <router-link to="/about">О студии</router-link>
+                    <router-link to="/about/info">О студии</router-link>
                     <div class="ribbon ribbon-left"></div>
                 </div>
                 <div class="main-button main-button--works" @mouseenter="setShowBack('backgroundWorks')">

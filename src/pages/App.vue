@@ -2,15 +2,13 @@
     <main class="main-container">
         <transition mode="out-in" name="header-transition">
             <header v-if="$route.path !== '/'" class="header-main">
-                <router-link to="/about">О студии</router-link>
+                <router-link to="/about/info">О студии</router-link>
                 <router-link to="/" class="logo-horisontal"></router-link>
                 <router-link to="/works">Наши работы</router-link>
             </header>
         </transition>
         <transition mode="out-in" :name="transitionName">
-            <keep-alive>
-                <router-view></router-view>
-            </keep-alive>
+            <router-view></router-view>
         </transition>
     </main>
 </template>

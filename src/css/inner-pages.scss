@@ -81,9 +81,48 @@
     margin-right: 0;
   }
 
-  .gmap {
+  .content-section {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-main {
+      flex-grow: 1;
+      display: flex;
+
+      &__text {
+        flex-basis: 40%;
+        flex-shrink: 0;
+      }
+
+      &__table {
+        width: 100%;
+        padding: 0 20px;
+        color: white;
+
+        td:last-child:not(:only-child) {
+          background-color: $darkred;
+          border-radius: 5px;
+          text-align: center;
+        }
+
+        td:first-child {
+          padding: 5px;
+          display: flex;
+
+          &:after {
+            content: '';
+            flex-grow: 1;
+            border-bottom: 1px dashed $darkred;
+          }
+        }
+      }
+
+      &__supp {
+        flex-grow: 1;
+      }
+    }
   }
 
   .works-back {
