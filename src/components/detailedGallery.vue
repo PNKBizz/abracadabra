@@ -6,7 +6,7 @@
         <div class="detailedGallery__button detailedGallery__button--next"
              @click="next"
              v-if="(currentIndex + 1) < masterGallery.length"></div>
-        <img :src="'/src/assets/gallery/' + master + '/' + imageId" alt="" class="detailedGallery__big-img">
+        <img :src="'src/assets/gallery/' + master + '/' + imageId" alt="" class="detailedGallery__big-img">
         <aside class="detailedGallery__all-items">
             <div class="detailedGallery__all-items--container">
                 <router-link tag="img"
